@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+  <meta charset="utf-8">
+  <title>ju-multi-select demo</title>
+
+  <!-- Stylesheets -->
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/ju-multi-select.css">
+</head>
+<body ng-controller='demoCtrl'>
+  <div class="container" style="margin-top:40px;">
+    <div class="row" style="margin-bottom: 10px;">
+      <h1>ju-multi-select Domo</h1>
+      Mouseover : {{overItem.name}}
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <ju-multi-select 
+        selectable-datas='selectableDatas' selected-datas='selectedDatas' 
+        use-search="true" over-item='overItem'
+        selectable-title="Selectable Title" selected-title="Selected Title">
+        </ju-multi-select>
+      </div>
+
+      <div class="col-md-6">
+        <div class="col-md-6">
+          <h3>Selectable Items</h3>
+          <hr/>
+          <ul ng-repeat="parent in selectableDatas">
+            {{parent.name}}
+            <li ng-repeat="child in parent.children">
+              {{child.name}}
+            </li>
+          </ul>
+        </div>  
+        
+        <div class="col-md-6">
+          <h3>Selected Items</h3>
+          <hr/>
+          <ul ng-repeat="parent in selectedDatas">
+            {{parent.name}}
+            <li ng-repeat="child in parent.children">
+              {{child.name}}
+            </li>
+          </ul>
+        </div>  
+
+      </div>  
+
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+  <!--[if IE 8]>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-shim.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-route.min.js"></script>
+    <script src="../dist/ju-multi-select.js"></script>
+    <script>
+    angular.module('demoApp', ['ngRoute','juMultiSelect'])
+    .controller('demoCtrl',['$scope',function($scope){
+      $scope.overItem = {};
+
+      $scope.selectableDatas = [
+      {id:1,name:"Radiohead",children:[{id:1,name:"Creep"},{id:2,name:"My iron lung"},{id:3,name:"Fake Plastic tree"},{id:4,name:"Bones"},{id:5,name:"High and dry"},{id:6,name:"Just"}]},
+      {id:2,name:"RATM",children:[{id:9,name:"Wake up"},{id:8,name:"Take the power back"},{id:7,name:"Killing in the name"}]}
+      ]
+
+      $scope.selectedDatas = [
+      {id:3,name:"RHCP",children:[{id:14,name:"Can`s stop"},{id:15,name:"Dani California"}]},
+      {id:4,name:"Muse",children:[{id:13,name:"Hysteria"},{id:12,name:"Plug in baby"},{id:11,name:"Panic Station"},{id:10,name:"Starlight"}]}
+      ]
+
+    }]);
+    </script>
+  </body>
+  </html>

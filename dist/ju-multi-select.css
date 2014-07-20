@@ -1,0 +1,80 @@
+.jms-container {
+
+}
+
+/* */
+
+.jms-header {
+
+}
+.jms-header .jms-selectable {
+	float: left;
+	width: 45%;
+}
+.jms-header .jms-center {
+	float: left;
+	width: 10%;
+	
+	text-align: center;
+}
+.jms-header .jms-center div{
+	vertical-align: middle;
+}
+.jms-header .jms-selected {
+	float: left;
+	width: 45%;
+}
+.jms-header-contents{
+	width: 100%;
+	margin-bottom: 10px;
+}
+.jms-header-contents input{
+	
+}
+.jms-header-contents span{
+	font-size: 20px;
+}
+
+/* */
+
+.jms-contents {
+
+}
+.jms-contents .jms-selectable {
+	float: left;
+	width: 45%;
+}
+.jms-contents .jms-center {
+	float: left;
+	width: 10%;
+	
+	text-align: center;
+}
+.jms-contents .jms-center div{
+	vertical-align: middle;
+}
+
+.jms-contents .jms-selected {
+	float: left;
+	width: 45%;
+}
+
+
+ /* */
+
+.jms-list {
+
+}
+.jms-list ul span{
+	cursor: pointer;
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	margin-top: -1px;
+	background-color: #fff;
+	border-top: 1px solid #ddd;
+}
+.jms-list ul a{
+	padding: 10px 25px;
+	border: none;
+}
