@@ -47,11 +47,12 @@ Fundamental Settings
 
 # Options
 
-- over-item : Data pointed by mouse.
+- over-parent-item : Parent data pointed by mouse.
+- over-child-item : Child data pointed by mouse.
 
-- height
-- width
-- font-size
+- height : ex) heigth="100px"
+- width : ex) width="100px"
+- font-size : ex) font-size="100px"
 - use-search : If this option true, you can use search. default false.
 
 - selectable-title : Title of selectable data list. 

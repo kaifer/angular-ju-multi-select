@@ -72,7 +72,8 @@
 			scope:{
 				selectableDatas: '=',
 				selectedDatas: '=',
-				overItem: '=',
+				overParentItem: '=',
+				overChildItem: '=',
 
 				height: '@',
 				width: '@',
@@ -111,12 +112,12 @@
 							'<ul class="list-group" style="{{setParentFontSize()}}" '+
 									'ng-repeat="parent in selectableDatas | parentsFilter:selectableWord track by $index" '+
 									'ng-click="parentToSelected($index)"'+
-									'ng-mouseover="emitOverItem(parent,$event)">'+
+									'ng-mouseover="emitOverParentItem(parent,$event)">'+
 								'<span>{{parent.name}}</span>'+
 								'<a href="#" class="list-group-item" style="{{setChildFontSize()}}" '+
 									'ng-repeat="child in parent.children | childrenFilter:selectableWord track by $index" '+
 									'ng-click="childToSelected($index,parent,$event)"'+
-									'ng-mouseover="emitOverItem(child,$event)">'+
+									'ng-mouseover="emitOverChildItem(child,$event)">'+
 									'{{child.name}}'+
 								'</a>'+
 							'</ul>'+
@@ -133,12 +134,12 @@
 							'<ul class="list-group" style="{{setParentFontSize()}}" '+
 								'ng-repeat="parent in selectedDatas | parentsFilter:selectedWord track by $index" '+
 								'ng-click="parentToSelectable($index)"'+
-								'ng-mouseover="emitOverItem(parent,$event)">'+
+								'ng-mouseover="emitOverParentItem(parent,$event)">'+
 								'<span>{{parent.name}}</span>'+
 								'<a href="#" class="list-group-item" style="{{setChildFontSize()}}" '+
 									'ng-repeat="child in parent.children | childrenFilter:selectedWord track by $index" '+
 									'ng-click="childToSelectable($index,parent,$event)"'+
-									'ng-mouseover="emitOverItem(child,$event)">'+
+									'ng-mouseover="emitOverChildItem(child,$event)">'+
 									'{{child.name}}'+
 								'</a>'+
 							'</ul>'+
@@ -192,9 +193,14 @@
 					}
 				}
 
-				scope.emitOverItem = function( src, $event ){
-					if( typeof scope.overItem !== 'undefined' ){
-						scope.overItem = src;
+				scope.emitOverParentItem = function( src, $event ){
+					if( typeof scope.overParentItem !== 'undefined' ){
+						angular.extend(scope.overParentItem, src);
+					}
+				}
+				scope.emitOverChildItem = function( src, $event ){
+					if( typeof scope.overChildItem !== 'undefined' ){
+						angular.extend(scope.overChildItem, src);
 						$event.stopPropagation();
 					}
 				}

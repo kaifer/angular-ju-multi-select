@@ -5,7 +5,7 @@
 /* */
 
 .jms-header {
-
+    padding-left: 30px;
 }
 .jms-header .jms-selectable {
 	float: left;
@@ -38,7 +38,7 @@
 /* */
 
 .jms-contents {
-
+    padding-left: 30px;
 }
 .jms-contents .jms-selectable {
 	float: left;
