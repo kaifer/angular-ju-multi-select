@@ -1,0 +1,28 @@
+{
+  "name": "angular-ju-multi-select",
+  "version": "0.1",
+  "homepage": "https://github.com/kaifer/angular-ju-multi-select",
+  "authors": [
+    "kaifer <one@njovy.com>"
+  ],
+  "description": "angularjs multi select directive",
+  "keywords": [
+    "angularjs",
+    "multi",
+    "select"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "1.2.27",
+    "bootstrap": "3.3.1",
+    "angular": "1.2.27",
+    "font-awesome": "4.2.0"
+  }
+}
