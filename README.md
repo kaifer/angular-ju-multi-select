@@ -10,6 +10,13 @@ An AngularJS directive which creates a multiple selections. Doesn't require jQue
 - [AwesomeFont](http://fortawesome.github.io/Font-Awesome/)
 
 
+# Installing via Bower
+
+```
+bower install angular-ju-multi-select
+```
+
+
 # Dependency 
 
 ### css
@@ -32,28 +39,28 @@ Add the juMultiSelect module as a dependency to your application module:
 var demoAppModule = angular.module('demoApp', ['ngRoute','juMultiSelect'])
 ```
 
-Apply the directive to your form elements:
+Apply the directive to your elements:
 
 ```html
-<ju-multi-select 
-        selectable-datas='selectableDatas' selected-datas='selectedDatas'> 
-</ju-multi-select>
+<div ju-multi-select="params">
+    <div class="col-xs-6">
+        <ul ng-repeat="selectable in $selectable" ng-click="params.moveParentToSelected($index)">{{selectable.name}}
+            <li ng-repeat="children in selectable.song" ng-click="params.moveChildToSelected($index,selectable,$event)">{{children.name}}</li>
+         </ul>
+        </div>
+        <div class="col-xs-6">
+            <ul ng-repeat="selected in $selected" ng-click="params.moveParentToSelectable($index)">{{selected.name}}
+                <li ng-repeat="children in selected.song" ng-click="params.moveChildToSelectable($index,selected,$event)">{{children.name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
 ```
 
-Fundamental Settings
+# JuMultiSelectParams 
+## Parameters
+- id : Property of identity field.
+- children : Property of children field.
 
-- selectable-datas : Unselected data.
-- selected-datas : Selected data.
-
-# Options
-
-- over-parent-item : Parent data pointed by mouse.
-- over-child-item : Child data pointed by mouse.
-
-- height : ex) heigth="100px"
-- width : ex) width="100px"
-- font-size : ex) font-size="100px"
-- use-search : If this option true, you can use search. default false.
-
-- selectable-title : Title of selectable data list. 
-- selected-title : Title of selected data list.
+## Setting
+- getData : Function of data feed. 

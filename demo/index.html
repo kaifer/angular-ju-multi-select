@@ -20,12 +20,12 @@
         <div ju-multi-select="params">
             <div class="col-xs-6">
                 <ul ng-repeat="selectable in $selectable" ng-click="params.moveParentToSelected($index)">{{selectable.name}}
-                    <li ng-repeat="children in selectable.song" ng-click="params.moveChildToSelected($index,selectable,$event)">{{children.name}}</li>
+                    <li ng-repeat="child in selectable.song" ng-click="params.moveChildToSelected($index,selectable,$event)">{{child.name}}</li>
                 </ul>
             </div>
             <div class="col-xs-6">
                 <ul ng-repeat="selected in $selected" ng-click="params.moveParentToSelectable($index)">{{selected.name}}
-                    <li ng-repeat="children in selected.song" ng-click="params.moveChildToSelectable($index,selected,$event)">{{children.name}}</li>
+                    <li ng-repeat="child in selected.song" ng-click="params.moveChildToSelectable($index,selected,$event)">{{child.name}}</li>
                 </ul>
             </div>
         </div>
