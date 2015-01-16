@@ -20,12 +20,12 @@
         <div ju-multi-select="params">
             <div class="col-xs-6">
                 <ul ng-repeat="selectable in $selectable" ng-click="params.moveParentToSelected($index)">{{selectable.name}}
-                    <li ng-repeat="children in selectable.children" ng-click="params.moveChildToSelected($index,selectable,$event)">{{children.name}}</li>
+                    <li ng-repeat="children in selectable.song" ng-click="params.moveChildToSelected($index,selectable,$event)">{{children.name}}</li>
                 </ul>
             </div>
             <div class="col-xs-6">
                 <ul ng-repeat="selected in $selected" ng-click="params.moveParentToSelectable($index)">{{selected.name}}
-                    <li ng-repeat="children in selected.children" ng-click="params.moveChildToSelectable($index,selected,$event)">{{children.name}}</li>
+                    <li ng-repeat="children in selected.song" ng-click="params.moveChildToSelectable($index,selected,$event)">{{children.name}}</li>
                 </ul>
             </div>
         </div>
@@ -74,24 +74,28 @@
     angular.module('demoApp', ['ngRoute','juMultiSelect'])
     .controller('demoCtrl',['$scope', 'JuMultiSelectParams' ,function($scope, JuMultiSelectParams){
                 $scope.params = new JuMultiSelectParams({
-                    name: "test"
+                    id: "idx",
+                    children: 'song'
                 }, {
                     getData: function (defer) {
                         defer.resolve({
                             selectable:  [
-                                {id:1,name:"Radiohead",children:[{id:1,name:"Creep"},{id:2,name:"My iron lung"},{id:3,name:"Fake Plastic tree"},{id:4,name:"Bones"},{id:5,name:"High and dry"},{id:6,name:"Just"}]},
-                                {id:2,name:"RATM",children:[{id:9,name:"Wake up"},{id:8,name:"Take the power back"},{id:7,name:"Killing in the name"}]}
+                                {idx:1,name:"Radiohead",song:[{idx:1,name:"Creep"},{idx:2,name:"My iron lung"},{idx:3,name:"Fake Plastic tree"},{idx:4,name:"Bones"},{idx:5,name:"High and dry"},{idx:6,name:"Just"}]},
+                                {idx:2,name:"RATM",song:[{idx:9,name:"Wake up"},{idx:8,name:"Take the power back"},{idx:7,name:"Killing in the name"}]}
                             ],
                             selected: [
-                                {id:3,name:"RHCP",children:[{id:14,name:"Can`s stop"},{id:15,name:"Dani California"}]},
-                                {id:4,name:"Muse",children:[{id:13,name:"Hysteria"},{id:12,name:"Plug in baby"},{id:11,name:"Panic Station"},{id:10,name:"Starlight"}]}
+                                {idx:3,name:"RHCP",song:[{idx:14,name:"Can`s stop"},{idx:15,name:"Dani California"}]},
+                                {idx:4,name:"Muse",song:[{idx:13,name:"Hysteria"},{idx:12,name:"Plug in baby"},{idx:11,name:"Panic Station"},{idx:10,name:"Starlight"}]}
                             ]
                         });
                     }
                 });
 
                 $scope.test = function(){
-                    $scope.params.reload();
+                    $scope.params.addDatasToSelectable(
+                            {idx:6,name:"Eminem",song:[{idx:64,name:"Lose Yourself"},{idx:65,name:"Rap God"}]},
+                            [{idx:66,name:"The Monster"}]
+                    );
                 };
 
                 $scope.showResult = function(){
