@@ -39,7 +39,7 @@
           <hr/>
           <ul ng-repeat="parent in selectableDatas">
             {{parent.name}}
-            <li ng-repeat="child in parent.children">
+            <li ng-repeat="child in parent.song">
               {{child.name}}
             </li>
           </ul>
@@ -50,7 +50,7 @@
           <hr/>
           <ul ng-repeat="parent in selectedDatas">
             {{parent.name}}
-            <li ng-repeat="child in parent.children">
+            <li ng-repeat="child in parent.song">
               {{child.name}}
             </li>
           </ul>
