@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
     var juMultiSelectCtrl = ['$scope', 'JuMultiSelectParams', function($scope, JuMultiSelectParams) {
-        function reload(){
+        $scope.reload = function(){
             $scope.params.settings().$scope = $scope;
             $scope.params.reload();
         };
@@ -10,12 +10,8 @@
             if (!$scope.params) {
                 $scope.params = new JuMultiSelectParams();
             }
-            reload();
+            $scope.reload();
         })();
-
-        $scope.$watch('params', function () {
-            reload();
-        }, true);
     }];
 
     angular.module('juMultiSelect', [])
@@ -172,6 +168,7 @@
                             return;
                         }
                         scope.params = params;
+                        scope.reload();
                     }), true);
                 } // end link
             }; // end return
