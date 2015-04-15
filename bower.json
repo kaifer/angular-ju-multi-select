@@ -1,6 +1,6 @@
 {
   "name": "angular-ju-multi-select",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/kaifer/angular-ju-multi-select",
   "authors": [
     "kaifer <one@njovy.com>"
@@ -20,9 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-route": "1.2.27",
     "bootstrap": "3.3.1",
-    "angular": "1.2.27",
-    "font-awesome": "4.2.0"
+    "angular": "1.2.27"
   }
 }
